@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Bowling Game</title>
+
+    <!-- Boostrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+
+<body>
+<main role="main" class="container">
+
+    <h1 class="title">Bowling Score Card</h1>
+
+
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 99.3 100" xml:space="preserve">
+	<circle class="st0" cx="49.8" cy="51.3" r="47.2"/>
+        <ellipse cx="45.5" cy="15.8" rx="5.5" ry="4.7"/>
+        <ellipse transform="matrix(0.7653 -0.6437 0.6437 0.7653 0.2631 54.4326)" cx="74.8" cy="26.9" rx="4.7" ry="5.5"/>
+        <circle cx="50.3" cy="37.9" r="5.5"/>
+	</svg>
+
+    <div id="buttons" class="buttons">
+        <form action="/arena/bowl" , method=RequestMethod.POST>
+            <button type="submit" class="btn btn-primary" name="pins" value="0">Miss</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="1">1</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="2">2</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="3">3</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="4">4</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="5">5</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="6">6</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="7">7</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="8">8</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="9">9</button>
+            <button type="submit" class="btn btn-primary" name="pins" value="10">10</button>
+        </form>
+    </div>
+    <div id='scorecard'>
+        <table id='scorecardTable' class='scorecard' cellpadding='1' cellspacing='0'>
+            <tr>
+                <th colspan='6'>Frame 1</th>
+                <th colspan='6'>Frame 2</th>
+                <th colspan='6'>Frame 3</th>
+                <th colspan='6'>Frame 4</th>
+                <th colspan='6'>Frame 5</th>
+                <th colspan='6'>Frame 6</th>
+                <th colspan='6'>Frame 7</th>
+                <th colspan='6'>Frame 8</th>
+                <th colspan='6'>Frame 9</th>
+                <th colspan='6'>Frame 10</th>
+            </tr>
+            <tr>
+                <td colspan='3'></td>
+                <td id="frame1" colspan='3'><span th:text=" ${frame1}"></span></td>
+                <td colspan='3'></td>
+                <td id="frame2" colspan='3'><span th:text=" ${frame2}"></span></td>
+                <td colspan='3'></td>
+                <td id="frame3" colspan='3'><span th:text=" ${frame3}"></span></td>
+                <td colspan='3'></td>
+                <td id="frame4" colspan='3'><span th:text=" ${frame4}"></span></td>
+                <td colspan='3'></td>
+                <td id="frame5" colspan='3'><span th:text=" ${frame5}"></span></td>
+                <td colspan='3'></td>
+                <td id="frame6" colspan='3'><span th:text=" ${frame6}"></span></td>
+                <td colspan='3'></td>
+                <td id="frame7" colspan='3'><span th:text=" ${frame7}"></span></td>
+                <td colspan='3'></td>
+                <td id="frame8" colspan='3'><span th:text=" ${frame8}"></span></td>
+                <td colspan='3'></td>
+                <td id="frame9" colspan='3'><span th:text=" ${frame9}"></span></td>
+                <td colspan='3'></td>
+                <td id="frame10" colspan='3'><span th:text=" ${frame10}"></span></td>
+            </tr>
+            <tr>
+                <td colspan='6' id="score1"><span th:text=" ${score1}"></span></td>
+                <td colspan='6' id="score2"><span th:text=" ${score2}"></span></td>
+                <td colspan='6' id="score3"><span th:text=" ${score3}"></span></td>
+                <td colspan='6' id="score4"><span th:text=" ${score4}"></span></td>
+                <td colspan='6' id="score5"><span th:text=" ${score5}"></span></td>
+                <td colspan='6' id="score6"><span th:text=" ${score6}"></span></td>
+                <td colspan='6' id="score7"><span th:text=" ${score7}"></span></td>
+                <td colspan='6' id="score8"><span th:text=" ${score8}"></span></td>
+                <td colspan='6' id="score9"><span th:text=" ${score9}"></span></td>
+                <td colspan='6' id="score10"><span th:text=" ${score10}"></span></td>
+            </tr>
+        </table>
+    </div>
+<!--    <h1 id="comments" class="notice"></h1>-->
+    <h1>
+        <span th:text="${message}"></span>
+    </h1>
+    <h1>
+        <span th:text="${finalScore}"></span>
+    </h1>
+
+    <h1 id="gameover" class="notice"></h1>
+    <h1 id="yourscore" class="final-score"></h1>
+    <div id="playagain">
+        <form action="/arena" , method=RequestMethod.POST>
+            <button type="submit" value="RESET" class="btn btn-primary" style="display: block;">Play Again</button>
+        </form>
+
+    </div>
+
+</main>
+<!-- /.container -->
+
+<!-- Boostrap core js -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+</body>
+</html>
