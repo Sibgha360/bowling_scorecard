@@ -7,7 +7,7 @@ public class FirstUniqueLetter {
     public static void main(String[] args) {
         System.out.println(FirstUniqueLetter.getFirstUniqueIndex(""));
         System.out.println(FirstUniqueLetter.getFirstUniqueIndex("anna"));
-        System.out.println(FirstUniqueLetter.getFirstUniqueIndex("togetther"));
+        System.out.println(FirstUniqueLetter.getFirstUniqueIndex("together"));
     }
 
     public static int getFirstUniqueIndex(String text) {
